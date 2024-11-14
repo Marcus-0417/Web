@@ -125,7 +125,7 @@ img {
 a {
     display: block;
     /* 將a預設的inline改為block，才能設定間距及寬高 */
-    color: #555;
+    color: #222;
     text-decoration: none;
 }
 
@@ -139,7 +139,7 @@ a {
     /* 副軸垂直置中 */
     padding: 20px 50px;
 
-    background-color: antiquewhite;
+    background:url(../images/banner_1.jpg);
 }
 
 #topbar .logo {
@@ -155,7 +155,7 @@ a {
 /* icon按鈕 */
 #topbar .icon {
     display: flex;
-    margin-bottom: 5px;
+    
 }
 
 #topbar .icon a {
@@ -193,19 +193,30 @@ a {
 /* 主選單 */
 #topbar .menu {
     display: flex;
-    background-image: linear-gradient(to right,rgb(255, 0, 0),yellow,black);
+    background-image: linear-gradient(4deg,rgba(255, 255, 255, 0.3),rgba(255, 255, 255, 0.15) 55%,rgba(255, 255, 255, 0.4));
+    border-radius: 99px;
+    padding: 0 10px;
+    margin-top: 10px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.15); /* 容器外圍陰影 */
+    /* filter: drop-shadow(2px 2px 5px rgba(0, 0, 0, 0.8)); */ /* 整個物件包含內容都有陰影 */
+
+    backdrop-filter: brightness(120%) blur(5px);
 }
 
 #topbar .menu a {
     margin: 10px;
-    padding-bottom: 5px;
-    border-bottom: solid 2px transparent;
-    /* transparent:透明 */
-    transition: 0.4s;
-    /* 過場動畫 */
+    padding: 7px 0 5px;
+    border-bottom: solid 2px transparent; /* transparent:透明 */
+    transition: 0.4s; /* 過場動畫 */
+    text-shadow: 0 0 2px rgba(255, 255, 255, 0.3); /* 文字外圍陰影 */
 }
 
 #topbar .menu a:hover {
-    border-bottom: solid 2px #ff0000;
-    color: blue;
+    border-bottom: solid 2px #666;
+    color: rgb(0, 0, 0);
+}
+
+/* 主要內容共用區 */
+section {
+    height: 100vh;
 }
