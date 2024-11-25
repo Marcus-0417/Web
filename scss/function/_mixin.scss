@@ -1,0 +1,3 @@
+@mixin bordered-b ($width: 2px, $color: #666) {
+    border-bottom: $width solid $color;
+}

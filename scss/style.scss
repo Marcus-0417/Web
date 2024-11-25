@@ -1,0 +1,69 @@
+@use 'reset';
+@use 'variables' as *;
+@use 'function' as *;
+@import url('https://fonts.googleapis.com/css2?family=Chocolate+Classical+Sans&family=Oi&display=swap');
+
+/* 頁首區 */
+#topbar {
+    display: flex; // 主軸方向：水平
+    justify-content: space-between; // 主軸水平左右均分
+    align-items: center; // 副軸垂直置中
+    padding: $interval-xy-l;
+    background: url(../images/banner_1.jpg);
+
+    .logo {
+        width: 65px;
+    }
+
+    .navigation {
+        display: flex; //主軸方向：水平
+        flex-direction: column; //主軸方向：垂直
+        align-items: flex-end; //副軸水平靠右
+
+        .icon {
+            display: flex;
+
+            a {
+                width: 35px;
+                height: 35px;
+                margin-right: $interval-s;
+                transition: $speed-fast;
+            }
+
+            @each $social in fb, ig, line {
+                .icon-#{$social} {
+                    background-image: url(../images/icon-#{$social}.svg);
+                }
+
+                .icon-#{$social}:hover {
+                    background-image: url(../images/icon-#{$social}-hover.svg);
+                }
+            }
+        }
+
+        .menu {
+            display: flex;
+            border-radius: 99px;
+            padding: $interval-x-s;
+            margin-top: $interval-s;
+            @extend %glassmorphism;
+
+            a {
+                margin: $interval-s;
+                padding: 7px 0 5px;
+                @include bordered-b($color:transparent);
+                transition: $speed-fast;
+                text-shadow: $text-shadow;
+
+                &:hover {
+                    @include bordered-b;
+                    color: $deep;
+                }
+            }
+        }
+    }
+}
+/* 主要內容共用區 */
+section {
+    height: 100vh;
+}

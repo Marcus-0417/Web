@@ -1,0 +1,222 @@
+@charset "utf-8";
+/* 第一行必須是定義編碼 */
+
+/* 清除預設值 */
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+    line-height: 1.2;
+}
+
+/* 重置標題字重 */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: normal;
+}
+
+/* 重置清單符號 */
+ul,
+ol {
+    list-style: none;
+}
+
+/* 重置圖片 */
+img {
+    display: block;
+    width: 100%;
+}
+
+/* 重置連結 */
+a {
+    display: block;
+    /* 將a預設的inline改為block，才能設定間距及寬高 */
+    color: #222;
+    text-decoration: none;
+}
+
+/* 頁首區 */
+#topbar {
+    display: flex;
+    /* 主軸方向：水平 */
+    justify-content: space-between;
+    /* 主軸水平左右均分 */
+    align-items: center;
+    /* 副軸垂直置中 */
+    padding: 20px 50px;
+
+    background:url(../images/banner_1.jpg);
+}
+
+#topbar .logo {
+    /* img的爸爸 */
+    width: 65px;
+}
+#topbar .navigation {
+    display: flex;/* 主軸方向：水平 */
+    flex-direction: column;/* 主軸方向：垂直 */
+    align-items:flex-end; /* 副軸水平靠右 */
+}
+
+/* icon按鈕 */
+#topbar .icon {
+    display: flex;
+    
+}
+
+#topbar .icon a {
+    margin-right: 10px;
+    width: 35px;
+    height: 35px;
+    transition: 0.4s;
+}
+
+#topbar .icon-fb {
+    /* CSS中的背景影像是svg的話會自動等比例縮放100% */
+    background-image: url(../images/icon-fb.svg);
+}
+
+#topbar .icon-ig {
+    background-image: url(../images/icon-ig.svg);
+}
+
+#topbar .icon-line {
+    background-image: url(../images/icon-line.svg);
+}
+
+#topbar .icon-fb:hover {
+    background-image: url(../images/icon-fb-hover.svg);
+}
+
+#topbar .icon-ig:hover {
+    background-image: url(../images/icon-ig-hover.svg);
+}
+
+#topbar .icon-line:hover {
+    background-image: url(../images/icon-line-hover.svg);
+}
+
+/* 主選單 */
+#topbar .menu {
+    display: flex;
+    background-image: linear-gradient(4deg,rgba(255, 255, 255, 0.3),rgba(255, 255, 255, 0.15) 55%,rgba(255, 255, 255, 0.4));
+    border-radius: 99px;
+    padding: 0 10px;
+    margin-top: 10px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.15); /* 容器外圍陰影 */
+    /* filter: drop-shadow(2px 2px 5px rgba(0, 0, 0, 0.8)); */ /* 整個物件包含內容都有陰影 */
+
+    backdrop-filter: brightness(120%) blur(5px);
+}
+
+#topbar .menu a {
+    margin: 10px;
+    padding: 7px 0 5px;
+    border-bottom: solid 2px transparent; /* transparent:透明 */
+    transition: 0.4s; /* 過場動畫 */
+    text-shadow: 0 0 2px rgba(255, 255, 255, 0.3); /* 文字外圍陰影 */
+}
+
+#topbar .menu a:hover {
+    border-bottom: solid 2px #666;
+    color: rgb(0, 0, 0);
+}
+
+/* 主要內容共用區 */
+section {
+    height: 100vh;
+}
