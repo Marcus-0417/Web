@@ -135,13 +135,22 @@ a {
   box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.15);
 }
 
+section, section .title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 /* 頁首區 */
 #topbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%; /* position的寬度會改為自動抓內容尺寸 */
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 20px 50px;
-  background: url(../images/banner_1.jpg);
 }
 #topbar .logo {
   width: 65px;
@@ -178,7 +187,12 @@ a {
 #topbar .navigation .icon .icon-line:hover {
   background-image: url(../images/icon-line-hover.svg);
 }
+@font-face {
+  font-family: "Super-Shiny";
+  src: url(../webfonts/Super-Shiny.ttf);
+}
 #topbar .navigation .menu {
+  font-family: "Super-Shiny", sans-serif;
   display: flex;
   border-radius: 99px;
   padding: 0 10px;
@@ -199,4 +213,37 @@ a {
 /* 主要內容共用區 */
 section {
   height: 100vh;
+  flex-direction: column;
+}
+section .title {
+  flex-direction: column;
+  position: relative;
+}
+section .title::before {
+  content: ""; /* 必須設定，就算沒有值也要保留空值 */
+  background-color: #222;
+  width: 15px;
+  height: 15px;
+  border-radius: 99px;
+  position: absolute;
+  top: -10px;
+  left: -15px;
+}
+section .title::after {
+  content: ""; /* 必須設定，就算沒有值也要保留空值 */
+  background-color: #222;
+  width: 15px;
+  height: 15px;
+  border-radius: 99px;
+  position: absolute;
+  bottom: 20px;
+  right: -15px;
+}
+section .title h2 {
+  font-family: "Oi", serif;
+  font-size: 2rem;
+}
+section .title h3 {
+  font-family: "Chocolate Classical Sans", serif;
+  font-size: 1.2rem;
 }/*# sourceMappingURL=style.css.map */

@@ -3,13 +3,18 @@
 @use 'function' as *;
 @import url('https://fonts.googleapis.com/css2?family=Chocolate+Classical+Sans&family=Oi&display=swap');
 
+
 /* 頁首區 */
 #topbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%; /* position的寬度會改為自動抓內容尺寸 */
     display: flex; // 主軸方向：水平
     justify-content: space-between; // 主軸水平左右均分
     align-items: center; // 副軸垂直置中
     padding: $interval-xy-l;
-    background: url(../images/banner_1.jpg);
+    // background: url(../images/banner_1.jpg);
 
     .logo {
         width: 65px;
@@ -41,7 +46,13 @@
             }
         }
 
+        @font-face {
+            font-family: "Super-Shiny";
+            src: url(../webfonts/Super-Shiny.ttf);
+        }
+
         .menu {
+            font-family: "Super-Shiny", sans-serif;
             display: flex;
             border-radius: 99px;
             padding: $interval-x-s;
@@ -51,7 +62,7 @@
             a {
                 margin: $interval-s;
                 padding: 7px 0 5px;
-                @include bordered-b($color:transparent);
+                @include bordered-b($color: transparent);
                 transition: $speed-fast;
                 text-shadow: $text-shadow;
 
@@ -63,7 +74,48 @@
         }
     }
 }
+
 /* 主要內容共用區 */
 section {
     height: 100vh;
+    @extend %box-center;
+    flex-direction: column;
+
+    .title {
+        @extend %box-center;
+        flex-direction: column;
+        position: relative;
+
+        &::before {
+            content: ""; /* 必須設定，就算沒有值也要保留空值 */
+            background-color: $deep;
+            width: 15px;
+            height: 15px;
+            border-radius: 99px;
+
+            position: absolute;
+            top: -10px;
+            left: -15px;
+        }
+        &::after {
+            content: ""; /* 必須設定，就算沒有值也要保留空值 */
+            background-color: $deep;
+            width: 15px;
+            height: 15px;
+            border-radius: 99px;
+
+            position: absolute;
+            bottom: 20px;
+            right: -15px;
+        }
+        h2 {
+            font-family: 'Oi', serif;
+            font-size: $font-size-xxxl;
+        }
+
+        h3 {
+            font-family: 'Chocolate Classical Sans', serif;
+            font-size: $font-size-l;
+        }
+    }
 }
