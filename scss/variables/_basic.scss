@@ -2,7 +2,8 @@
 $interval-s: 10px;
 $interval-x-s: 0 10px;
 $interval-xy-l: 20px 50px;
-
+$interval-lable: 24px 0 10px;
+$interval-x-center: 30px auto;
 // 速率
 $speed-fast: 0.4s;
 
@@ -10,7 +11,8 @@ $speed-fast: 0.4s;
 $text-shadow: 0 0 2px rgba(255, 255, 255, 0.3);
 
 // 字級
-$font-size-s: 0.8rem;
+$font-size-xs: 0.8rem;
+$font-size-s: 0.85rem;
 $font-size-m: 1rem;
 $font-size-l: 1.2rem;
 $font-size-xl: 1.4rem;

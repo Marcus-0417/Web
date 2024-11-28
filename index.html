@@ -38,19 +38,50 @@
                 <li><a href="">CONTACT</a></li>
             </ul>
         </nav>
-        
+
 
     </header>
 
     <!-- 主要內容區 -->
     <main> <!-- 快速寫法 => section*6>header.title>h2+h3 -->
         <section id="banner"></section>
+        <!-- 最新消息 -->
         <section id="news">
             <header class="title">
                 <h2>NEWS</h2>
                 <h3>最新消息</h3>
             </header>
+            <div class="box-list"> <!-- 快速寫法 => div.box-list>article.item*3>a>(figure>img)+div.content>h2+p -->
+                <article class="item">
+                    <a href="#">
+                        <figure><img src="./images/pt_news1.jpg" alt=""></figure>
+                        <div class="content">
+                            <h2>NEWS TITLE</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut accusantium rem nisi cumque cum dignissimos atque. Inventore provident laboriosam repellat hic suscipit aspernatur, asperiores sint beatae illo debitis amet eos!</p>
+                        </div>
+                    </a>
+                </article>
+                <article class="item">
+                    <a href="#">
+                        <figure><img src="./images/pt_news2.jpg" alt=""></figure>
+                        <div class="content">
+                            <h2>NEWS TITLE</h2>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus dolores sit minus in ratione sint illum maiores, laboriosam odio voluptas nemo, nulla mollitia repudiandae odit, non quidem aspernatur porro illo.</p>
+                        </div>
+                    </a>
+                </article>
+                <article class="item">
+                    <a href="#">
+                        <figure><img src="./images/pt_news3.jpg" alt=""></figure>
+                        <div class="content">
+                            <h2>NEWS TITLE</h2>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi nobis ab odio aliquid aperiam cum quo facilis. Voluptas atque, dolor libero tenetur nesciunt voluptatibus beatae sint ducimus, recusandae quae mollitia?</p>
+                        </div>
+                    </a>
+                </article>
+            </div>
         </section>
+
         <section id="service">
             <header class="title">
                 <h2>SERVICE</h2>
@@ -69,11 +100,35 @@
                 <h3>相關影片</h3>
             </header>
         </section>
+
+        <!-- 聯絡我們 -->
         <section id="contact">
             <header class="title">
                 <h2>CONTACT</h2>
                 <h3>聯絡我們</h3>
             </header>
+            <form action="#" method="post" name="contact-form" id="contact-form" title="聯絡我們表單">
+                <label for="username">*姓名：</label>
+                <input type="text" name="username" id="username" title="姓名" placeholder="請輸入姓名" required>
+
+                <label for="tel">聯絡電話：</label>
+                <input type="tel" name="tel" id="tel" title="聯絡電話" placeholder="0987830678">
+
+                <label for="email">*Email：</label><!-- multiple 可以輸入多個值用,分隔 -->
+                <input type="email" name="email" id="email" title="Email" placeholder="請輸入Email" required multiple>
+
+                <label for="message">留言：</label>
+                <textarea name="message" id="message" title="留言欄位" cols="30" rows="6" id=""></textarea>
+
+                <small>此表單為練習作品，不具有收集資料的功能。不具有商業行為。非正式網站。</small>
+
+                <button type="submit" name="contact-btn" id="contact-btn" title="送出按鈕"><span>送出</span></button>
+            </form>
+
+            <!-- 裝飾花 -->
+            <figure class="flower_r"><img src="./images/flower_r.png" alt="紅花"></figure>
+            <figure class="flower_w"><img src="./images/flower_w.png" alt="白花"></figure>
+
         </section>
     </main>
 

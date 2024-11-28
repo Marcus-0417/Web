@@ -129,16 +129,55 @@ a {
 }
 
 /* reset end */
-#topbar .navigation .menu {
+#topbar .navigation .menu, #contact #contact-form input,
+#contact #contact-form textarea, #contact #contact-form #contact-btn {
   background-image: linear-gradient(4deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.15) 55%, rgba(255, 255, 255, 0.4));
   backdrop-filter: brightness(120%) blur(5px);
   box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.15);
 }
 
-section, section .title {
+section, section .title, #contact #contact-form #contact-btn {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg) translate3d(0, 0, 0);
+  }
+  25% {
+    transform: rotate(3deg) translate3d(0, 0, 0);
+  }
+  50% {
+    transform: rotate(-3deg) translate3d(0, 0, 0);
+  }
+  75% {
+    transform: rotate(1deg) translate3d(0, 0, 0);
+  }
+  100% {
+    transform: rotate(0deg) translate3d(0, 0, 0);
+  }
+}
+@keyframes storm {
+  0% {
+    transform: translate3d(0, 0, 0) translateZ(0);
+  }
+  25% {
+    transform: translate3d(4px, 0, 0) translateZ(0);
+  }
+  50% {
+    transform: translate3d(-3px, 0, 0) translateZ(0);
+  }
+  75% {
+    transform: translate3d(2px, 0, 0) translateZ(0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) translateZ(0);
+  }
+}
+body {
+  color: #444;
 }
 
 /* 頁首區 */
@@ -146,7 +185,8 @@ section, section .title {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%; /* position的寬度會改為自動抓內容尺寸 */
+  width: 100%;
+  /* position的寬度會改為自動抓內容尺寸 */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -207,7 +247,7 @@ section, section .title {
 }
 #topbar .navigation .menu a:hover {
   border-bottom: 2px solid #666;
-  color: #222;
+  color: #444;
 }
 
 /* 主要內容共用區 */
@@ -220,8 +260,9 @@ section .title {
   position: relative;
 }
 section .title::before {
-  content: ""; /* 必須設定，就算沒有值也要保留空值 */
-  background-color: #222;
+  content: "";
+  /* 必須設定，就算沒有值也要保留空值 */
+  background-color: #444;
   width: 15px;
   height: 15px;
   border-radius: 99px;
@@ -230,8 +271,9 @@ section .title::before {
   left: -15px;
 }
 section .title::after {
-  content: ""; /* 必須設定，就算沒有值也要保留空值 */
-  background-color: #222;
+  content: "";
+  /* 必須設定，就算沒有值也要保留空值 */
+  background-color: #444;
   width: 15px;
   height: 15px;
   border-radius: 99px;
@@ -246,4 +288,95 @@ section .title h2 {
 section .title h3 {
   font-family: "Chocolate Classical Sans", serif;
   font-size: 1.2rem;
+}
+
+.box-list {
+  width: 80%;
+  max-width: 1400px; /* 最大寬度max-width(px)常搭配寬度width(%) */
+  display: flex;
+}
+
+/* 最新消息 */
+/* 聯絡我們 */
+#contact {
+  position: relative;
+  overflow: hidden;
+  background-image: url(../images/bg_contact.jpg);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  /* 固定背景 */
+}
+#contact #contact-form {
+  width: 35%;
+}
+#contact #contact-form > * {
+  display: block;
+  width: 100%;
+}
+#contact #contact-form label {
+  margin: 24px 0 10px;
+  font-size: 0.85rem;
+}
+#contact #contact-form input,
+#contact #contact-form textarea {
+  color: #8f6b6d;
+  font-size: 0.85rem;
+  padding: 8px;
+  border-radius: 5px;
+  background-color: transparent;
+  border: none;
+}
+#contact #contact-form input::placeholder,
+#contact #contact-form textarea::placeholder {
+  color: #cdaaab;
+}
+#contact #contact-form input:focus,
+#contact #contact-form textarea:focus {
+  outline: 2px solid #cdaaab;
+}
+#contact #contact-form small {
+  font-size: 0.8rem;
+  margin-top: 10px;
+}
+#contact #contact-form #contact-btn {
+  background-color: transparent;
+  border: none;
+  border-radius: 99px;
+  cursor: pointer;
+  height: 60px;
+  width: 210px;
+  margin: 30px auto;
+}
+#contact #contact-form #contact-btn span {
+  color: #8f6b6d;
+  font-size: 12px;
+  letter-spacing: 1.5rem;
+  padding-left: 1.5rem;
+}
+#contact #contact-form #contact-btn:hover {
+  animation: rotate 0.7s ease-in-out both;
+}
+#contact #contact-form #contact-btn:hover span {
+  animation: storm 0.7s ease-in-out both;
+  animation-delay: 0.06s;
+}
+#contact .flower_r {
+  width: 320px;
+  position: absolute;
+  left: -30px;
+  bottom: -50px;
+  transform: rotate(30deg);
+}
+#contact .flower_w {
+  width: 320px;
+  position: absolute;
+  right: -30px;
+  top: 50px;
+  transform: rotate(-50deg);
+}
+
+footer {
+  height: 150px;
+  background-color: #f2edf0;
 }/*# sourceMappingURL=style.css.map */

@@ -1,15 +1,20 @@
 @use 'reset';
 @use 'variables' as *;
 @use 'function' as *;
+@use 'keyframes';
 @import url('https://fonts.googleapis.com/css2?family=Chocolate+Classical+Sans&family=Oi&display=swap');
 
+body {
+    color: $deep;
+}
 
 /* 頁首區 */
 #topbar {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%; /* position的寬度會改為自動抓內容尺寸 */
+    width: 100%;
+    /* position的寬度會改為自動抓內容尺寸 */
     display: flex; // 主軸方向：水平
     justify-content: space-between; // 主軸水平左右均分
     align-items: center; // 副軸垂直置中
@@ -87,7 +92,8 @@ section {
         position: relative;
 
         &::before {
-            content: ""; /* 必須設定，就算沒有值也要保留空值 */
+            content: "";
+            /* 必須設定，就算沒有值也要保留空值 */
             background-color: $deep;
             width: 15px;
             height: 15px;
@@ -97,8 +103,10 @@ section {
             top: -10px;
             left: -15px;
         }
+
         &::after {
-            content: ""; /* 必須設定，就算沒有值也要保留空值 */
+            content: "";
+            /* 必須設定，就算沒有值也要保留空值 */
             background-color: $deep;
             width: 15px;
             height: 15px;
@@ -108,6 +116,7 @@ section {
             bottom: 20px;
             right: -15px;
         }
+
         h2 {
             font-family: 'Oi', serif;
             font-size: $font-size-xxxl;
@@ -118,4 +127,117 @@ section {
             font-size: $font-size-l;
         }
     }
+}
+
+.box-list {
+    width: 80%;
+    max-width: 1400px; /* 最大寬度max-width(px)常搭配寬度width(%) */
+    display: flex;
+}
+
+/* 最新消息 */
+
+
+/* 聯絡我們 */
+#contact {
+    position: relative;
+    overflow: hidden;
+    background-image: url(../images/bg_contact.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    /* 固定背景 */
+
+    #contact-form {
+        width: 35%;
+
+        >* {
+            display: block;
+            width: 100%;
+
+        }
+
+        label {
+            margin: $interval-lable;
+            font-size: $font-size-s;
+        }
+
+        input,
+        textarea {
+            color: $lesser-4;
+            font-size: $font-size-s;
+            padding: 8px;
+            border-radius: 5px;
+            @extend %glassmorphism;
+
+            //修改input預設樣式
+            background-color: transparent;
+            border: none;
+
+            &::placeholder {
+                color: $lesser-3;
+            }
+
+            &:focus {
+                outline: 2px solid $lesser-3;
+            }
+        }
+
+        small {
+            font-size: $font-size-xs;
+            margin-top: $interval-s;
+        }
+
+        #contact-btn {
+            @extend %box-center;
+            @extend %glassmorphism;
+            //修改button預設樣式
+            background-color: transparent;
+            border: none;
+
+            border-radius: 99px;
+            cursor: pointer;
+            height: 60px;
+            width: 210px;
+            margin: $interval-x-center;
+            
+
+            span {
+                color: $lesser-4;
+                font-size: 12px;
+                letter-spacing: 1.5rem; // 字距加在每個字的右邊
+                padding-left: 1.5rem; // 用左邊內距捕右邊的字距使其平衡
+            }
+
+            &:hover {
+                animation: rotate 0.7s ease-in-out both;
+
+                span {
+                    animation: storm 0.7s ease-in-out both;
+                    animation-delay: 0.06s;
+                }
+            }
+        }
+    }
+
+    .flower_r {
+        width: 320px;
+        position: absolute;
+        left: -30px;
+        bottom: -50px;
+        transform: rotate(30deg);
+    }
+
+    .flower_w {
+        width: 320px;
+        position: absolute;
+        right: -30px;
+        top: 50px;
+        transform: rotate(-50deg);
+    }
+}
+
+footer {
+    height: 150px;
+    background-color: $bg-1;
 }
