@@ -8,3 +8,22 @@
     justify-content: center;
     align-items: center;
 }
+
+%img-cover {
+    height: 100%;
+    object-fit: cover;
+}
+
+%line-clamp { //多行文字省略
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    // -webkit-line-clamp: 5; =>寫在style中
+}
+
+%line-single { //單行文字省略
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}

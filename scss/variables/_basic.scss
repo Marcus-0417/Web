@@ -1,6 +1,9 @@
 // 間距
 $interval-s: 10px;
+$interval-m: 16px;
+$interval-l: 24px;
 $interval-x-s: 0 10px;
+$interval-x-m: 0 15px;
 $interval-xy-l: 20px 50px;
 $interval-lable: 24px 0 10px;
 $interval-x-center: 30px auto;
@@ -10,11 +13,12 @@ $speed-fast: 0.4s;
 // 特效
 $text-shadow: 0 0 2px rgba(255, 255, 255, 0.3);
 
-// 字級
-$font-size-xs: 0.8rem;
-$font-size-s: 0.85rem;
-$font-size-m: 1rem;
-$font-size-l: 1.2rem;
-$font-size-xl: 1.4rem;
-$font-size-xxl: 1.8rem;
-$font-size-xxxl: 2rem;
+// 圓角
+$border-r-s: 8px;
+$border-r-m: 16px;
+$border-r-l: 24px;
+
+// z-index
+$z-index-s: 9;
+$z-index-m: 99;
+$z-index-l: 999;

@@ -1,87 +1,13 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Chocolate+Classical+Sans&family=Oi&display=swap");
 /* 清除預設值 */
-html,
-body,
-div,
-span,
-applet,
-object,
-iframe,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-blockquote,
-pre,
-a,
-abbr,
-acronym,
-address,
-big,
-cite,
-code,
-del,
-dfn,
-em,
-img,
-ins,
-kbd,
-q,
-s,
-samp,
-small,
-strike,
-strong,
-sub,
-sup,
-tt,
-var,
-b,
-u,
-i,
-center,
-dl,
-dt,
-dd,
-ol,
-ul,
-li,
-fieldset,
-form,
-label,
-legend,
-table,
-caption,
-tbody,
-tfoot,
-thead,
-tr,
-th,
-td,
-article,
-aside,
-canvas,
-details,
-embed,
-figure,
-figcaption,
-footer,
-header,
-hgroup,
-menu,
-nav,
-output,
-ruby,
-section,
-summary,
-time,
-mark,
-audio,
-video {
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p,
+blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn,
+em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var,
+b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table,
+caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details,
+embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby,
+section, summary, time, mark, audio, video {
   margin: 0;
   padding: 0;
   border: 0;
@@ -95,7 +21,7 @@ video {
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Helvetica, Arial, "蘋方-繁", "PingFang TC", "黑體-繁", "Heiti TC", "微軟正黑體", "Microsoft JhengHei", "Noto Sans TC", sans-serif;
   font-optical-sizing: auto; /* 光學尺寸 */
-  line-height: 1.2;
+  line-height: 1.5;
 }
 
 /* 重置標題字重 */
@@ -142,6 +68,24 @@ section, section .title, #contact #contact-form #contact-btn {
   align-items: center;
 }
 
+#news figure img {
+  height: 100%;
+  object-fit: cover;
+}
+
+#news .content p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+}
+
+#service .content p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 @keyframes rotate {
   0% {
     transform: rotate(0deg) translate3d(0, 0, 0);
@@ -185,6 +129,7 @@ body {
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 999;
   width: 100%;
   /* position的寬度會改為自動抓內容尺寸 */
   display: flex;
@@ -246,7 +191,7 @@ body {
   text-shadow: 0 0 2px rgba(255, 255, 255, 0.3);
 }
 #topbar .navigation .menu a:hover {
-  border-bottom: 2px solid #666;
+  border-bottom: 2px solid #444;
   color: #444;
 }
 
@@ -258,6 +203,7 @@ section {
 section .title {
   flex-direction: column;
   position: relative;
+  margin-bottom: 24px;
 }
 section .title::before {
   content: "";
@@ -292,11 +238,88 @@ section .title h3 {
 
 .box-list {
   width: 80%;
-  max-width: 1400px; /* 最大寬度max-width(px)常搭配寬度width(%) */
+  max-width: 1400px;
+  /* 最大寬度max-width(px)常搭配寬度width(%) */
   display: flex;
+}
+.box-list .item {
+  border: 1px solid #444;
+  flex: 1;
+  margin: 0 15px;
+  border-radius: 16px;
+  overflow: hidden;
+}
+.box-list .item .content {
+  padding: 16px;
+}
+.box-list .item .content h2 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 10px;
 }
 
 /* 最新消息 */
+#news {
+  background-color: #f2edf0;
+}
+#news figure {
+  height: 30vh;
+}
+#news .content {
+  transition: 0.4s;
+}
+#news .content p {
+  -webkit-line-clamp: 5;
+  text-align: justify;
+}
+#news .content:hover {
+  background-color: #f1f1f1;
+}
+
+/* 服務項目 */
+#service {
+  background-color: #e6ece5;
+}
+#service .svc-1 {
+  background-image: url(../images/pt_svc1.jpg);
+}
+#service .svc-2 {
+  background-image: url(../images/pt_svc2.jpg);
+}
+#service .svc-3 {
+  background-image: url(../images/pt_svc3.jpg);
+}
+#service .svc-4 {
+  background-image: url(../images/pt_svc4.jpg);
+}
+#service .item {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 60vh;
+  background-size: cover;
+  background-position: center;
+}
+#service .content {
+  background-color: rgba(0, 0, 0, 0.65);
+  color: #f1f1f1;
+  transition: 0.4s;
+}
+#service .content:hover {
+  background-color: rgba(0, 0, 0, 0.85);
+}
+/* 關於我們 */
+/* 相關影片 */
+#video {
+  background-color: #ecf0f4;
+}
+#video div {
+  height: 60vh;
+}
+#video div video {
+  height: 100%;
+}
+
 /* 聯絡我們 */
 #contact {
   position: relative;

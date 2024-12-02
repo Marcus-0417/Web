@@ -13,6 +13,7 @@ body {
     position: fixed;
     top: 0;
     left: 0;
+    z-index: $z-index-l; //數字越大，權重越重
     width: 100%;
     /* position的寬度會改為自動抓內容尺寸 */
     display: flex; // 主軸方向：水平
@@ -90,6 +91,7 @@ section {
         @extend %box-center;
         flex-direction: column;
         position: relative;
+        margin-bottom: $interval-l;
 
         &::before {
             content: "";
@@ -131,11 +133,102 @@ section {
 
 .box-list {
     width: 80%;
-    max-width: 1400px; /* 最大寬度max-width(px)常搭配寬度width(%) */
+    max-width: 1400px;
+    /* 最大寬度max-width(px)常搭配寬度width(%) */
     display: flex;
+
+    .item {
+        @include bordered;
+        flex: 1;
+        margin: $interval-x-m;
+        border-radius: $border-r-m;
+        overflow: hidden; //超過隱藏
+
+        .content{
+            padding: $interval-m;
+
+            h2{
+                font-size: $font-size-xl;
+                font-weight: $font-weight-bold;
+                margin-bottom: $interval-s;
+            }
+        }
+    }
 }
 
 /* 最新消息 */
+#news {
+    background-color: $bg-1;
+    figure{
+        height: 30vh;
+
+        img{
+            // width: 100%;已在reset中設定
+            @extend %img-cover;
+        }
+    }
+
+    .content {
+        transition: $speed-fast;
+
+        p{
+            @extend %line-clamp;
+            -webkit-line-clamp: 5;
+            text-align: justify; // 英文不要用很醜 中文可以使用
+        }
+
+        &:hover {
+            background-color: $light;
+        }
+    }
+}
+
+/* 服務項目 */
+#service {
+    background-color: $bg-2;
+    @each $service in 1, 2, 3, 4 {
+        .svc-#{$service} {
+            background-image: url(../images/pt_svc#{$service}.jpg);
+        }
+    }
+
+    .item {
+        display: flex; //主軸：水平
+        flex-direction: column; //主軸改垂直
+        justify-content: flex-end; // 垂直置底
+        height: 60vh;
+
+        background-size: cover;
+        background-position: center;
+    }
+
+    .content {
+        background-color: $alpha-b-65;
+        color: $light;
+        transition: $speed-fast;
+
+        &:hover {
+            background-color: $alpha-b-85;
+        }
+        p {
+            @extend %line-single;
+        }
+    }
+}
+
+/* 關於我們 */
+
+/* 相關影片 */
+#video {
+    background-color: $bg-3;
+    div{
+        height: 60vh;
+
+        video {
+            height: 100%;
+        }
+    }
+}
 
 
 /* 聯絡我們 */
@@ -200,7 +293,7 @@ section {
             height: 60px;
             width: 210px;
             margin: $interval-x-center;
-            
+
 
             span {
                 color: $lesser-4;

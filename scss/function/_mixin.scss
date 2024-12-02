@@ -1,3 +1,9 @@
-@mixin bordered-b ($width: 2px, $color: #666) {
+@use "../variables" as *; //變數不可於index中匯入
+
+@mixin bordered-b ($width: 2px, $color: $deep) {
     border-bottom: $width solid $color;
+}
+
+@mixin bordered ($width: 1px, $color: $deep) {
+    border: $width solid $color;
 }
