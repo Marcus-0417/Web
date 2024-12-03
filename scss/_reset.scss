@@ -1,3 +1,4 @@
+@use 'variables' as *;
 /* 清除預設值 */
 
 html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,
@@ -54,6 +55,27 @@ a {
     /* 將a預設的inline改為block，才能設定間距及寬高 */
     color: #222;
     text-decoration: none;
+}
+
+/* 卷軸樣式 */
+::-webkit-scrollbar{ //捲動條
+    width: 15px; //垂直卷軸寬
+    height: 15px; //水平卷軸高
+    // background-color: #222;
+    border-radius: 99px;
+}
+::-webkit-scrollbar-button{ //捲動按鈕(上下)
+    background-color: #ffea00;
+    border-radius: 99px;
+    width: 15px;
+    height: 15px;
+}
+::-webkit-scrollbar-thumb{ //捲動手柄
+    background-color: #9c9c9ccb;
+    border-radius: 99px;
+}
+::-webkit-scrollbar-track{ //捲動軌道
+    background-color: #012054;
 }
 
 /* reset end */

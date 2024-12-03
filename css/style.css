@@ -54,6 +54,29 @@ a {
   text-decoration: none;
 }
 
+/* 卷軸樣式 */
+::-webkit-scrollbar {
+  width: 15px;
+  height: 15px;
+  border-radius: 99px;
+}
+
+::-webkit-scrollbar-button {
+  background-color: #ffea00;
+  border-radius: 99px;
+  width: 15px;
+  height: 15px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(156, 156, 156, 0.7960784314);
+  border-radius: 99px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #012054;
+}
+
 /* reset end */
 #topbar .navigation .menu, #contact #contact-form input,
 #contact #contact-form textarea, #contact #contact-form #contact-btn {
@@ -62,7 +85,7 @@ a {
   box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.15);
 }
 
-section, section .title, #contact #contact-form #contact-btn {
+section, section .title, #about div, #contact #contact-form #contact-btn {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -124,6 +147,34 @@ body {
   color: #444;
 }
 
+.icon {
+  display: flex;
+}
+.icon a {
+  width: 35px;
+  height: 35px;
+  margin-right: 10px;
+  transition: 0.4s;
+}
+.icon .icon-fb {
+  background-image: url(../images/icon-fb.svg);
+}
+.icon .icon-fb:hover {
+  background-image: url(../images/icon-fb-hover.svg);
+}
+.icon .icon-ig {
+  background-image: url(../images/icon-ig.svg);
+}
+.icon .icon-ig:hover {
+  background-image: url(../images/icon-ig-hover.svg);
+}
+.icon .icon-line {
+  background-image: url(../images/icon-line.svg);
+}
+.icon .icon-line:hover {
+  background-image: url(../images/icon-line-hover.svg);
+}
+
 /* 頁首區 */
 #topbar {
   position: fixed;
@@ -144,33 +195,6 @@ body {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-}
-#topbar .navigation .icon {
-  display: flex;
-}
-#topbar .navigation .icon a {
-  width: 35px;
-  height: 35px;
-  margin-right: 10px;
-  transition: 0.4s;
-}
-#topbar .navigation .icon .icon-fb {
-  background-image: url(../images/icon-fb.svg);
-}
-#topbar .navigation .icon .icon-fb:hover {
-  background-image: url(../images/icon-fb-hover.svg);
-}
-#topbar .navigation .icon .icon-ig {
-  background-image: url(../images/icon-ig.svg);
-}
-#topbar .navigation .icon .icon-ig:hover {
-  background-image: url(../images/icon-ig-hover.svg);
-}
-#topbar .navigation .icon .icon-line {
-  background-image: url(../images/icon-line.svg);
-}
-#topbar .navigation .icon .icon-line:hover {
-  background-image: url(../images/icon-line-hover.svg);
 }
 @font-face {
   font-family: "Super-Shiny";
@@ -224,7 +248,7 @@ section .title::after {
   height: 15px;
   border-radius: 99px;
   position: absolute;
-  bottom: 20px;
+  bottom: 27px;
   right: -15px;
 }
 section .title h2 {
@@ -270,6 +294,7 @@ section .title h3 {
 }
 #news .content p {
   -webkit-line-clamp: 5;
+  line-clamp: 5;
   text-align: justify;
 }
 #news .content:hover {
@@ -309,6 +334,48 @@ section .title h3 {
   background-color: rgba(0, 0, 0, 0.85);
 }
 /* 關於我們 */
+#about {
+  position: relative;
+  background-color: #f2edf0;
+}
+#about div {
+  position: absolute;
+  z-index: 99;
+  width: 50%;
+  height: 100vh;
+  flex-direction: column;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+#about div p {
+  overflow: auto;
+  height: 70vh;
+  margin: 0 70px;
+  padding: 15px;
+  text-align: justify;
+}
+#about div p::-webkit-scrollbar {
+  width: 15px;
+  height: 15px;
+}
+#about div p::-webkit-scrollbar-button {
+  background-color: #ffea00;
+  width: 0;
+  height: 0;
+}
+#about div p::-webkit-scrollbar-thumb {
+  background-color: rgba(156, 156, 156, 0.7960784314);
+  border-radius: 0;
+}
+#about div p::-webkit-scrollbar-track {
+  background-color: #a81683;
+}
+#about #video_bg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(160%) opacity(25%) saturate(120%) contrast(120%) hue-rotate(180deg);
+}
+
 /* 相關影片 */
 #video {
   background-color: #ecf0f4;
@@ -400,6 +467,25 @@ section .title h3 {
 }
 
 footer {
-  height: 150px;
   background-color: #f2edf0;
+  padding: 20px 50px;
+  display: flex;
+  justify-content: space-between;
+}
+footer .logo {
+  width: 50px;
+}
+footer .navigation {
+  display: flex;
+}
+footer .navigation .menu {
+  display: flex;
+  margin: 0 15px;
+}
+footer .navigation .menu > li {
+  margin: 0 10px;
+  width: 6rem;
+}
+footer .navigation .menu > li ul {
+  margin: 10px 0;
 }/*# sourceMappingURL=style.css.map */

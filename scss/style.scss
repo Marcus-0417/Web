@@ -8,6 +8,27 @@ body {
     color: $deep;
 }
 
+.icon {
+    display: flex;
+
+    a {
+        width: 35px;
+        height: 35px;
+        margin-right: $interval-s;
+        transition: $speed-fast;
+    }
+
+    @each $social in fb, ig, line {
+        .icon-#{$social} {
+            background-image: url(../images/icon-#{$social}.svg);
+        }
+
+        .icon-#{$social}:hover {
+            background-image: url(../images/icon-#{$social}-hover.svg);
+        }
+    }
+}
+
 /* 頁首區 */
 #topbar {
     position: fixed;
@@ -30,27 +51,6 @@ body {
         display: flex; //主軸方向：水平
         flex-direction: column; //主軸方向：垂直
         align-items: flex-end; //副軸水平靠右
-
-        .icon {
-            display: flex;
-
-            a {
-                width: 35px;
-                height: 35px;
-                margin-right: $interval-s;
-                transition: $speed-fast;
-            }
-
-            @each $social in fb, ig, line {
-                .icon-#{$social} {
-                    background-image: url(../images/icon-#{$social}.svg);
-                }
-
-                .icon-#{$social}:hover {
-                    background-image: url(../images/icon-#{$social}-hover.svg);
-                }
-            }
-        }
 
         @font-face {
             font-family: "Super-Shiny";
@@ -115,7 +115,7 @@ section {
             border-radius: 99px;
 
             position: absolute;
-            bottom: 20px;
+            bottom: 27px;
             right: -15px;
         }
 
@@ -144,10 +144,10 @@ section {
         border-radius: $border-r-m;
         overflow: hidden; //超過隱藏
 
-        .content{
+        .content {
             padding: $interval-m;
 
-            h2{
+            h2 {
                 font-size: $font-size-xl;
                 font-weight: $font-weight-bold;
                 margin-bottom: $interval-s;
@@ -159,10 +159,11 @@ section {
 /* 最新消息 */
 #news {
     background-color: $bg-1;
-    figure{
+
+    figure {
         height: 30vh;
 
-        img{
+        img {
             // width: 100%;已在reset中設定
             @extend %img-cover;
         }
@@ -171,9 +172,10 @@ section {
     .content {
         transition: $speed-fast;
 
-        p{
+        p {
             @extend %line-clamp;
             -webkit-line-clamp: 5;
+            line-clamp: 5;
             text-align: justify; // 英文不要用很醜 中文可以使用
         }
 
@@ -186,6 +188,7 @@ section {
 /* 服務項目 */
 #service {
     background-color: $bg-2;
+
     @each $service in 1, 2, 3, 4 {
         .svc-#{$service} {
             background-image: url(../images/pt_svc#{$service}.jpg);
@@ -210,6 +213,7 @@ section {
         &:hover {
             background-color: $alpha-b-85;
         }
+
         p {
             @extend %line-single;
         }
@@ -217,11 +221,71 @@ section {
 }
 
 /* 關於我們 */
+#about {
+    position: relative;
+    background-color: $bg-1;
+
+    div {
+        position: absolute;
+        z-index: $z-index-m;
+
+        width: 50%;
+        height: 100vh;
+        @extend %box-center;
+        flex-direction: column;
+        background-color: $alpha-w-50;
+
+        p {
+            overflow: auto;
+            height: 70vh;
+            margin: 0 70px;
+            padding: 15px;
+            text-align: justify; // 英文不要用很醜 中文可以使用
+
+            &::-webkit-scrollbar {
+                //捲動條
+                width: 15px; //垂直卷軸寬
+                height: 15px; //水平卷軸高
+                // border-radius: 99px;
+            }
+
+            &::-webkit-scrollbar-button {
+                //捲動按鈕(上下)
+                background-color: #ffea00;
+                width: 0;
+                height: 0;
+            }
+
+            &::-webkit-scrollbar-thumb {
+                //捲動手柄
+                background-color: #9c9c9ccb;
+                border-radius: 0;
+            }
+
+            &::-webkit-scrollbar-track {
+                //捲動軌道
+                background-color: #a81683;
+            }
+        }
+    }
+
+    #video_bg {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+
+        // 修圖效果
+        // mix-blend-mode: overlay;
+        filter: brightness(160%) opacity(25%) saturate(120%) contrast(120%) hue-rotate(180deg);
+    }
+}
+
 
 /* 相關影片 */
 #video {
     background-color: $bg-3;
-    div{
+
+    div {
         height: 60vh;
 
         video {
@@ -331,6 +395,31 @@ section {
 }
 
 footer {
-    height: 150px;
     background-color: $bg-1;
+    padding: $interval-xy-l;
+    display: flex;
+    justify-content: space-between;
+
+    .logo {
+        width: 50px;
+    }
+
+    .navigation {
+        display: flex;
+
+        .menu {
+            display: flex;
+            margin: $interval-x-m;
+
+            >li {
+                //箭頭">"代表第1層
+                margin: $interval-x-s;
+                width: 6rem; // 寬度要相對於字寬才用rem設定
+
+                ul {
+                    margin: $interval-y-s;
+                }
+            }
+        }
+    }
 }
