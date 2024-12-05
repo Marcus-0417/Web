@@ -2,7 +2,12 @@
 @use 'variables' as *;
 @use 'function' as *;
 @use 'keyframes';
-@import url('https://fonts.googleapis.com/css2?family=Chocolate+Classical+Sans&family=Oi&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Chocolate+Classical+Sans&family=Oi&family=Mallanna&family=Mansalva&family=Montserrat+Underline&display=swap');
+
+@font-face {
+    font-family: "Super-Shiny";
+    src: url(../webfonts/Super-Shiny.ttf);
+}
 
 body {
     color: $deep;
@@ -52,11 +57,6 @@ body {
         flex-direction: column; //主軸方向：垂直
         align-items: flex-end; //副軸水平靠右
 
-        @font-face {
-            font-family: "Super-Shiny";
-            src: url(../webfonts/Super-Shiny.ttf);
-        }
-
         .menu {
             font-family: "Super-Shiny", sans-serif;
             display: flex;
@@ -80,6 +80,48 @@ body {
         }
     }
 }
+
+@media ($mediaSm) {
+    #topbar {
+        .navbar {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+
+            .hamburger {
+                // 修改button預設樣式
+                background-color: transparent;
+                border: none;
+                cursor: pointer;
+
+                .bar {
+                    display: block;
+                    width: 24px;
+                    height: 3px;
+                    background-color: $deep;
+                    margin: 5px auto;
+                }
+            }
+
+            .navigation {
+                align-items: center;
+
+                .menu {
+                    order: -1;
+                    flex-direction: column;
+                }
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
 
 /* 主要內容共用區 */
 section {
@@ -294,6 +336,22 @@ section {
     }
 }
 
+@media ($mediaMd) {
+    #video {
+        height: auto;
+        padding: 100px 0;
+
+        div {
+            width: 80%;
+            height: auto; //高度需要除新定義覆蓋桌機版
+
+            video {
+                width: 100%;
+                height: auto;
+            }
+        }
+    }
+}
 
 /* 聯絡我們 */
 #contact {
@@ -404,8 +462,18 @@ footer {
         width: 50px;
     }
 
+    div {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+    }
+
     .navigation {
         display: flex;
+
+        @media ($mediaMd) {
+            display: none;
+        }
 
         .menu {
             display: flex;

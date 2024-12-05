@@ -1,5 +1,5 @@
 @charset "UTF-8";
-@import url("https://fonts.googleapis.com/css2?family=Chocolate+Classical+Sans&family=Oi&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Chocolate+Classical+Sans&family=Oi&family=Mallanna&family=Mansalva&family=Montserrat+Underline&display=swap");
 /* 清除預設值 */
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p,
 blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn,
@@ -143,6 +143,10 @@ section, section .title, #about div, #contact #contact-form #contact-btn {
     transform: translate3d(0, 0, 0) translateZ(0);
   }
 }
+@font-face {
+  font-family: "Super-Shiny";
+  src: url(../webfonts/Super-Shiny.ttf);
+}
 body {
   color: #444;
 }
@@ -196,10 +200,6 @@ body {
   flex-direction: column;
   align-items: flex-end;
 }
-@font-face {
-  font-family: "Super-Shiny";
-  src: url(../webfonts/Super-Shiny.ttf);
-}
 #topbar .navigation .menu {
   font-family: "Super-Shiny", sans-serif;
   display: flex;
@@ -219,6 +219,32 @@ body {
   color: #444;
 }
 
+@media (max-width: 640px) {
+  #topbar .navbar {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+  #topbar .navbar .hamburger {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+  #topbar .navbar .hamburger .bar {
+    display: block;
+    width: 24px;
+    height: 3px;
+    background-color: #444;
+    margin: 5px auto;
+  }
+  #topbar .navbar .navigation {
+    align-items: center;
+  }
+  #topbar .navbar .navigation .menu {
+    order: -1;
+    flex-direction: column;
+  }
+}
 /* 主要內容共用區 */
 section {
   height: 100vh;
@@ -387,6 +413,20 @@ section .title h3 {
   height: 100%;
 }
 
+@media (max-width: 1023px) {
+  #video {
+    height: auto;
+    padding: 100px 0;
+  }
+  #video div {
+    width: 80%;
+    height: auto;
+  }
+  #video div video {
+    width: 100%;
+    height: auto;
+  }
+}
 /* 聯絡我們 */
 #contact {
   position: relative;
@@ -475,8 +515,18 @@ footer {
 footer .logo {
   width: 50px;
 }
+footer div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
 footer .navigation {
   display: flex;
+}
+@media (max-width: 1023px) {
+  footer .navigation {
+    display: none;
+  }
 }
 footer .navigation .menu {
   display: flex;

@@ -24,3 +24,9 @@ $border-r-l: 24px;
 $z-index-s: 9;
 $z-index-m: 99;
 $z-index-l: 999;
+
+// RWD斷點
+$mediaSm: 'max-width: 640px';
+$mediaSmUp:'min-width: 641px ';
+$mediaMd: 'max-width: 1023px';
+$mediaLg: 'min-width: 1024px';
