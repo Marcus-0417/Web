@@ -7,3 +7,9 @@
 @mixin bordered ($width: 1px, $color: $deep) {
     border: $width solid $color;
 }
+
+@mixin glassmorphism {
+    background-image: linear-gradient( 4deg,rgba(255, 255, 255, 0.3),rgba(255, 255, 255, .15) 55%,rgba(255, 255, 255, .4));
+    backdrop-filter: brightness(120%) blur(5px);
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.15); // 容器外圍有陰影
+}

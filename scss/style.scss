@@ -63,7 +63,7 @@ body {
             border-radius: 99px;
             padding: $interval-x-s;
             margin-top: $interval-s;
-            @extend %glassmorphism;
+            // @extend %glassmorphism;
 
             a {
                 margin: $interval-s;
@@ -81,8 +81,25 @@ body {
     }
 }
 
+// 手機以上尺寸
+@media ($mediaSmUp) {
+    #topbar {
+        .hamburger {
+            display: none;
+        }
+
+        .menu {
+            @include glassmorphism;
+        }
+    }
+}
+
+// RWD手機板
 @media ($mediaSm) {
     #topbar {
+        align-items: flex-start;
+        padding: 20px;
+
         .navbar {
             display: flex;
             flex-direction: column;
@@ -100,28 +117,47 @@ body {
                     height: 3px;
                     background-color: $deep;
                     margin: 5px auto;
+                    transition: all 0.4s ease-in-out;
+                }
+
+                &.is-active {
+                    .bar {
+                        &:nth-child(1) {
+                            transform: translateY(8px) rotate(45deg);
+                        }
+
+                        &:nth-child(2) {
+                            opacity: 0;
+                        }
+
+                        &:nth-child(3) {
+                            transform: translateY(-8px) rotate(-45deg);
+                        }
+                    }
                 }
             }
 
             .navigation {
+                display: none;
                 align-items: center;
+                @include glassmorphism;
+                padding: 0 0 10px 10px;
+                border-radius: 10px;
+                animation: hide 1s both;
 
                 .menu {
-                    order: -1;
                     flex-direction: column;
+                    order: -1;
+                }
+
+                &.show {
+                    display: flex;
+                    animation: show 1s both;
                 }
             }
         }
     }
 }
-
-
-
-
-
-
-
-
 
 /* 主要內容共用區 */
 section {
@@ -227,6 +263,28 @@ section {
     }
 }
 
+// 平板
+@media ($mediaMd) {
+    #news {
+        .item {
+            &:last-child {
+                display: none;
+            }
+        }
+    }
+}
+
+// 手機版
+@media ($mediaSm) {
+    #news {
+        .item {
+            &:nth-child(n+2) {
+                display: none;
+            }
+        }
+    }
+}
+
 /* 服務項目 */
 #service {
     background-color: $bg-2;
@@ -258,6 +316,24 @@ section {
 
         p {
             @extend %line-single;
+        }
+    }
+}
+
+@media ($mediaMd) {
+    #service {
+        .box-list {
+            flex-direction: column; //主軸改為垂直，變成高度(主軸方向)抓內容尺寸
+            height: 60vh; //補高度
+
+            .item {
+                margin: 15px 0;
+
+                &:nth-child(n+3) {
+                    //第三個以後作用
+                    display: none;
+                }
+            }
         }
     }
 }
@@ -322,6 +398,25 @@ section {
     }
 }
 
+@media ($mediaMd) {
+    #about {
+        div {
+            width: 80%;
+        }
+    }
+}
+
+@media ($mediaSm) {
+    #about {
+        div {
+            width: 90%;
+
+            p {
+                margin: 0 20px;
+            }
+        }
+    }
+}
 
 /* 相關影片 */
 #video {
@@ -383,7 +478,9 @@ section {
             font-size: $font-size-s;
             padding: 8px;
             border-radius: 5px;
-            @extend %glassmorphism;
+
+            @include glassmorphism;
+            // @extend %glassmorphism;
 
             //修改input預設樣式
             background-color: transparent;
@@ -405,7 +502,7 @@ section {
 
         #contact-btn {
             @extend %box-center;
-            @extend %glassmorphism;
+            @include glassmorphism;
             //修改button預設樣式
             background-color: transparent;
             border: none;
@@ -452,6 +549,41 @@ section {
     }
 }
 
+@media ($mediaMd) {
+    #contact {
+        .flower_r {
+            width: 250px;
+        }
+
+        .flower_w {
+            width: 250px;
+        }
+    }
+}
+
+@media ($mediaSm) {
+    #contact {
+        #contact-form {
+            width: 60%;
+
+            #contact-btn {
+                width: 100%;
+            }
+        }
+
+        .flower_r {
+            width: 150px;
+            bottom: -20px;
+        }
+
+        .flower_w {
+            width: 150px;
+            top: 80px;
+        }
+    }
+}
+
+
 footer {
     background-color: $bg-1;
     padding: $interval-xy-l;
@@ -465,7 +597,21 @@ footer {
     div {
         display: flex;
         flex-direction: column;
+        justify-content: flex-end;
         align-items: flex-end;
+    }
+
+    #gotop {
+        display: none;
+        width: 50px;
+        height: 50px;
+        cursor: pointer;
+        background-color: $lesser-3;
+        border-radius: 50%;
+        position: fixed;
+        right: 20px;
+        bottom: 50px;
+        z-index: $z-index-l;
     }
 
     .navigation {
